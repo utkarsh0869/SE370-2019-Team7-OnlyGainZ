@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import java.text.*;
 import java.time.Month;
 import java.time.Period;
+import java.util.Random;
 import java.util.TimeZone;
 
 /*
@@ -40,6 +41,7 @@ public class signupJFrame extends javax.swing.JFrame {
           
            
            for(int i = 0; i < users.size(); i++) {
+                filewriter.write(users.get(i).getUserID() +" ");
                 filewriter.write(users.get(i).getfName()+" ");
                 filewriter.write(users.get(i).getlName()+" ");
                 filewriter.write(users.get(i).getUsername()+" ");
@@ -304,7 +306,14 @@ public class signupJFrame extends javax.swing.JFrame {
             int wt = Integer.parseInt(weight.getText().trim());
             int woExperience = Integer.parseInt(woEx.getText().trim());
             
-            User user = new User(fName, lName, userName, pass, gender, age, ht, wt, woExperience);
+            Random rand = new Random(); //instance of random class
+            int upperbound = 100000;
+            int int_random = rand.nextInt(upperbound);
+            
+            String userID = Integer.toString(int_random);
+          
+            
+            User user = new User(fName, lName, userName, pass, gender, age, ht, wt, woExperience, userID);
             users.add(user);
             saveUsersToFile();
         }

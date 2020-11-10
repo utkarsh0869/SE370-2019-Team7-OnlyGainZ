@@ -1,6 +1,10 @@
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import javax.swing.ImageIcon;
 import java.util.*;
 
@@ -15,10 +19,11 @@ public class Dashboard extends javax.swing.JFrame {
      */
     public Dashboard() {
         initComponents();
+        System.out.println("called dashboard");
         this.setLocationRelativeTo(null);
         scaleImage();
         displayQuotes();
-        colorButtons();
+        addWindowListener();
     }
 
     /**
@@ -29,6 +34,7 @@ public class Dashboard extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
 
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -43,6 +49,7 @@ public class Dashboard extends javax.swing.JFrame {
         gainzTrackerButton = new javax.swing.JButton();
         healthtipsButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        signOutJButton = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
@@ -118,9 +125,16 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        String s = "Welcome " + OnlyGainz.userinfo[0];
+        String s = "Welcome " + OnlyGainz.userinfo[1];
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText(s);
+
+        signOutJButton.setText("Sign Out");
+        signOutJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signOutJButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -151,7 +165,9 @@ public class Dashboard extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(profileLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(profileLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(signOutJButton, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -160,7 +176,10 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(profileLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(profileLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(signOutJButton))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -196,11 +215,19 @@ public class Dashboard extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        colorButtons();
+
         pack();
+
+
     }// </editor-fold>//GEN-END:initComponents
 
     private void profileLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileLabelMouseClicked
-        // TODO add your handling code here:
+        this.toBack();
+        EditUserInfo edituserinfo= new EditUserInfo();
+        edituserinfo.setVisible(true);
+        edituserinfo.toFront();
+        
     }//GEN-LAST:event_profileLabelMouseClicked
 
     private void workoutsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workoutsButtonActionPerformed
@@ -232,6 +259,13 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_healthtipsButtonActionPerformed
 
+    private void signOutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutJButtonActionPerformed
+        this.dispose();
+        loginJFrame ljf = new loginJFrame();
+        ljf.setVisible(true);
+        ljf.setLocationRelativeTo(null);
+    }//GEN-LAST:event_signOutJButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel dashboardLabel;
     private javax.swing.JButton gainzTrackerButton;
@@ -245,6 +279,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton nutritionButton;
     private javax.swing.JLabel profileLabel;
     private javax.swing.JTextArea quoteTextArea;
+    private javax.swing.JButton signOutJButton;
     private javax.swing.JButton workoutsButton;
     // End of variables declaration//GEN-END:variables
 
@@ -278,7 +313,7 @@ public class Dashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-//                new Dashboard().setVisible(true);
+               new Dashboard().setVisible(true);
             }
         });
     }
@@ -292,17 +327,44 @@ public class Dashboard extends javax.swing.JFrame {
             profileLabel.setIcon(scaledIcon);
     }
     
+    private void addWindowListener() {
+        
+        WindowAdapter adapter = new WindowAdapter() {
+            
+        @Override
+        public void windowLostFocus(WindowEvent e) {
+            System.out.println("Focus Lost");
+        }
+        @Override
+        public void windowClosing(WindowEvent e) {
+        }
+         @Override
+        public void windowActivated(WindowEvent e) {
+            System.out.println(OnlyGainz.userinfo[1]);
+            jLabel1.setText("Welcome " + OnlyGainz.userinfo[1]);
+//            revalidate();
+//            repaint();
+//            System.out.println("window activated");
+        }
+    };
+     this.addWindowListener(adapter);
+    }
+    
     private void displayQuotes(){
 
         quoteTextArea.setText(q.returnRandomQuotesFromHashMap());
     }
 
     private void colorButtons() {
-        gainzTrackerButton.setBackground(Color.BLUE);
+        gainzTrackerButton.setBackground(Color.GREEN);//Black By Default
+        gainzTrackerButton.setForeground(Color.orange);//Set as a Gray Colour
+//        gainzTrackerButton.setForeground(Color.BLUE);
+//        gainzTrackerButton.setOpaque(true);
         goalSetterButton.setBackground(Color.GREEN);
         healthtipsButton.setBackground(Color.MAGENTA);
         leaderBoardButton.setBackground(Color.orange);
         nutritionButton.setBackground(Color.yellow);
         workoutsButton.setBackground(Color.GRAY);
     }
+
 }

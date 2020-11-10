@@ -220,7 +220,7 @@ public class dinnerJFrame extends javax.swing.JFrame {
     private void scaleImages() {
             Random r = new Random();
         //if the user is above 6'5 and weighs more than 197 lbs
-        if(Integer.parseInt(OnlyGainz.userinfo[6]) >= 195 && Integer.parseInt(OnlyGainz.userinfo[7]) >= 197){
+        if(Integer.parseInt(OnlyGainz.userinfo[7]) >= 195 && Integer.parseInt(OnlyGainz.userinfo[8]) >= 197){
             
             int [] arr = new int[3];
             int j = 0;
@@ -271,8 +271,8 @@ public class dinnerJFrame extends javax.swing.JFrame {
 
         }
         //if the person is smaller than 6'5 and taller than 5'5 and weighs in between 144 and 197 lbs
-        else if( ( (Integer.parseInt(OnlyGainz.userinfo[6]) < 195) && (Integer.parseInt(OnlyGainz.userinfo[6]) >= 165) ) 
-               && ( (Integer.parseInt(OnlyGainz.userinfo[7]) < 197) && (Integer.parseInt(OnlyGainz.userinfo[7]) >= 144) ) ){
+        else if( ( (Integer.parseInt(OnlyGainz.userinfo[7]) < 195) && (Integer.parseInt(OnlyGainz.userinfo[7]) >= 165) ) 
+               && ( (Integer.parseInt(OnlyGainz.userinfo[8]) < 197) && (Integer.parseInt(OnlyGainz.userinfo[8]) >= 144) ) ){
       
             int [] arr = new int[3];
             int j = 0;

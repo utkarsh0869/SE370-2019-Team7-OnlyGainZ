@@ -11,8 +11,10 @@ public class User implements Serializable{
     private int height; // height is in cm  
     private int weight;  // weight is in lbs
     private int yrOfExperience; // years of experience working out
+    private String userID;
 
-    public User(String fName, String lName, String username, String password, String gender, int age, int height, int weight, int yrOfExperience) {
+    public User(String fName, String lName, String username, String password, String gender, int age, int height, int weight, int yrOfExperience, String userID) {
+        this.userID = userID;
         this.fName = fName;
         this.lName = lName;
         this.username = username;
@@ -24,6 +26,9 @@ public class User implements Serializable{
         this.yrOfExperience = yrOfExperience;
     }
 
+    public String getUserID(){
+        return userID;
+    }
     public String getfName() {
         return fName;
     }

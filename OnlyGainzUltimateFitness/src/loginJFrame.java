@@ -115,8 +115,9 @@ public class loginJFrame extends javax.swing.JFrame {
             while (myReader.hasNextLine()) {
                 String ii = myReader.nextLine();
                 OnlyGainz.userinfo = ii.split(" ");
+//                OnlyGainz.userinfo[0].replace(OnlyGainz.userinfo[0], "asd");
                 System.out.println(OnlyGainz.userinfo[6] + " " + OnlyGainz.userinfo[7] );
-                if (un.equals(OnlyGainz.userinfo[2]) && pw.equals(OnlyGainz.userinfo[3]))  {
+                if (un.equals(OnlyGainz.userinfo[3]) && pw.equals(OnlyGainz.userinfo[4]))  {
                     JOptionPane.showMessageDialog(null, "Login Successful!");
                     state = true;
                     break;

@@ -131,7 +131,6 @@ public class nutritionJFrame extends javax.swing.JFrame {
     private void breakfastButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_breakfastButtonActionPerformed
         breakfastJFrame bjf = new breakfastJFrame();
         bjf.setVisible(true);
-//        this.toBack();
     }//GEN-LAST:event_breakfastButtonActionPerformed
 
     private void dinnerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dinnerButtonActionPerformed
