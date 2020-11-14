@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -114,10 +115,12 @@ public class loginJFrame extends javax.swing.JFrame {
 
             while (myReader.hasNextLine()) {
                 String ii = myReader.nextLine();
-                OnlyGainz.userinfo = ii.split(" ");
+                String [] iii = ii.split(" ");
 //                OnlyGainz.userinfo[0].replace(OnlyGainz.userinfo[0], "asd");
-                System.out.println(OnlyGainz.userinfo[6] + " " + OnlyGainz.userinfo[7] );
-                if (un.equals(OnlyGainz.userinfo[3]) && pw.equals(OnlyGainz.userinfo[4]))  {
+                System.out.println(iii[3] + " " + iii[4] );
+                if (un.equals(iii[3]) && pw.equals(iii[4]))  {
+                    OnlyGainz.userinfo = ii.split(" ");
+                    System.out.println(Arrays.toString(OnlyGainz.userinfo));
                     JOptionPane.showMessageDialog(null, "Login Successful!");
                     state = true;
                     break;

@@ -20,9 +20,9 @@ class breakfast {
                 
                 while (myReader.hasNextLine()) {
                     
-                    String ii = myReader.nextLine();
-                    Integer j = Integer.parseInt(ii);
-                    String ss = myReader.nextLine();
+                    String ii = myReader.nextLine();//1
+                    Integer j = Integer.parseInt(ii);//j = 1,2
+                    String ss = myReader.nextLine();//ss = Healthy Egg Muffin Cups. Serving Size: 2 egg muffins. 96 calories., 
                     breakfastHM.put(j, ss);
                 }
             }
