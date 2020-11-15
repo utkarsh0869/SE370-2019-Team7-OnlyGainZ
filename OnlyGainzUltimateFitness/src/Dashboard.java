@@ -35,7 +35,6 @@ public class Dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         workoutsButton = new javax.swing.JButton();
@@ -54,11 +53,16 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        workoutsButton.setBackground(new java.awt.Color(255, 51, 102));
         workoutsButton.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         workoutsButton.setText("WORKOUTS");
+        workoutsButton.setOpaque(true);
+        workoutsButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        workoutsButton.setOpaque(true);
         workoutsButton.setPreferredSize(new java.awt.Dimension(207, 38));
         workoutsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,30 +74,40 @@ public class Dashboard extends javax.swing.JFrame {
         dashboardLabel.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
         dashboardLabel.setText("DASHBOARD");
 
+        profileLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         profileLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 profileLabelMouseClicked(evt);
             }
         });
 
+        goalSetterButton.setBackground(new java.awt.Color(177, 177, 177));
         goalSetterButton.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         goalSetterButton.setText("GOAL SETTER");
+        goalSetterButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        goalSetterButton.setOpaque(true);
         goalSetterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 goalSetterButtonActionPerformed(evt);
             }
         });
 
+        nutritionButton.setBackground(new java.awt.Color(153, 255, 102));
         nutritionButton.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         nutritionButton.setText("NUTRITION");
+        nutritionButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        nutritionButton.setOpaque(true);
         nutritionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nutritionButtonActionPerformed(evt);
             }
         });
 
+        leaderBoardButton.setBackground(new java.awt.Color(153, 153, 255));
         leaderBoardButton.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         leaderBoardButton.setText("LEADERBOARD");
+        leaderBoardButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        leaderBoardButton.setOpaque(true);
         leaderBoardButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 leaderBoardButtonActionPerformed(evt);
@@ -105,20 +119,26 @@ public class Dashboard extends javax.swing.JFrame {
         quoteTextArea.setFont(new java.awt.Font("Lucida Grande", 2, 18)); // NOI18N
         quoteTextArea.setLineWrap(true);
         quoteTextArea.setRows(5);
-        quoteTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder("QUOTE OF THE DAY"));
+        quoteTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "QUOTE OF THE DAY", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Grande", 1, 13))); // NOI18N
         jScrollPane1.setViewportView(quoteTextArea);
         quoteTextArea.setEditable(false);
 
+        gainzTrackerButton.setBackground(new java.awt.Color(238, 210, 233));
         gainzTrackerButton.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         gainzTrackerButton.setText("GAINZ TRACKER");
+        gainzTrackerButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        gainzTrackerButton.setOpaque(true);
         gainzTrackerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gainzTrackerButtonActionPerformed(evt);
             }
         });
 
+        healthtipsButton.setBackground(new java.awt.Color(238, 228, 103));
         healthtipsButton.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         healthtipsButton.setText("HEALTH TIPS");
+        healthtipsButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        healthtipsButton.setOpaque(true);
         healthtipsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 healthtipsButtonActionPerformed(evt);
@@ -129,7 +149,9 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText(s);
 
+        signOutJButton.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         signOutJButton.setText("Sign Out");
+        signOutJButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         signOutJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signOutJButtonActionPerformed(evt);
@@ -144,64 +166,54 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(workoutsButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(healthtipsButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(gainzTrackerButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(goalSetterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(nutritionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(leaderBoardButton)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(healthtipsButton, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                            .addComponent(workoutsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nutritionButton, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                            .addComponent(gainzTrackerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(goalSetterButton, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                            .addComponent(leaderBoardButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(dashboardLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(profileLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(signOutJButton, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(signOutJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(profileLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(signOutJButton))
+                        .addComponent(signOutJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dashboardLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(leaderBoardButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(nutritionButton, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(goalSetterButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(gainzTrackerButton, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE))
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(workoutsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(231, 231, 231))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(329, 329, 329)
-                .addComponent(healthtipsButton, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                .addGap(6, 6, 6))
+                    .addComponent(leaderBoardButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nutritionButton, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                    .addComponent(workoutsButton, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(healthtipsButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gainzTrackerButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(goalSetterButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -215,11 +227,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        colorButtons();
-
         pack();
-
-
     }// </editor-fold>//GEN-END:initComponents
 
     private void profileLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileLabelMouseClicked
@@ -342,29 +350,18 @@ public class Dashboard extends javax.swing.JFrame {
         public void windowActivated(WindowEvent e) {
             System.out.println(OnlyGainz.userinfo[1]);
             jLabel1.setText("Welcome " + OnlyGainz.userinfo[1]);
-//            revalidate();
-//            repaint();
-//            System.out.println("window activated");
         }
     };
      this.addWindowListener(adapter);
     }
-    
+    public void paint(Graphics g) { // paint() method
+      super.paint(g);
+      
+      }
+   
     private void displayQuotes(){
 
         quoteTextArea.setText(q.returnRandomQuotesFromHashMap());
-    }
-
-    private void colorButtons() {
-        gainzTrackerButton.setBackground(Color.GREEN);//Black By Default
-        gainzTrackerButton.setForeground(Color.orange);//Set as a Gray Colour
-//        gainzTrackerButton.setForeground(Color.BLUE);
-//        gainzTrackerButton.setOpaque(true);
-        goalSetterButton.setBackground(Color.GREEN);
-        healthtipsButton.setBackground(Color.MAGENTA);
-        leaderBoardButton.setBackground(Color.orange);
-        nutritionButton.setBackground(Color.yellow);
-        workoutsButton.setBackground(Color.GRAY);
     }
 
 }

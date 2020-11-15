@@ -116,7 +116,6 @@ public class loginJFrame extends javax.swing.JFrame {
             while (myReader.hasNextLine()) {
                 String ii = myReader.nextLine();
                 String [] iii = ii.split(" ");
-//                OnlyGainz.userinfo[0].replace(OnlyGainz.userinfo[0], "asd");
                 System.out.println(iii[3] + " " + iii[4] );
                 if (un.equals(iii[3]) && pw.equals(iii[4]))  {
                     OnlyGainz.userinfo = ii.split(" ");

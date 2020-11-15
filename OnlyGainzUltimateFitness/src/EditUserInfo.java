@@ -56,6 +56,7 @@ public class EditUserInfo extends javax.swing.JFrame {
         genderJTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         firstNameJLabel.setText("First Name *");
 
