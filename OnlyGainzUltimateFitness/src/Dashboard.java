@@ -19,7 +19,6 @@ public class Dashboard extends javax.swing.JFrame {
      */
     public Dashboard() {
         initComponents();
-        System.out.println("called dashboard");
         this.setLocationRelativeTo(null);
         scaleImage();
         displayQuotes();
@@ -354,14 +353,8 @@ public class Dashboard extends javax.swing.JFrame {
     };
      this.addWindowListener(adapter);
     }
-    public void paint(Graphics g) { // paint() method
-      super.paint(g);
-      
-      }
    
     private void displayQuotes(){
-
         quoteTextArea.setText(q.returnRandomQuotesFromHashMap());
     }
-
 }
