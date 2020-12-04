@@ -53,6 +53,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -119,6 +120,8 @@ public class Dashboard extends javax.swing.JFrame {
         quoteTextArea.setLineWrap(true);
         quoteTextArea.setRows(5);
         quoteTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "QUOTE OF THE DAY", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Grande", 1, 13))); // NOI18N
+        quoteTextArea.setLineWrap(true);
+        quoteTextArea.setWrapStyleWord(true);
         jScrollPane1.setViewportView(quoteTextArea);
         quoteTextArea.setEditable(false);
 
