@@ -54,12 +54,13 @@ public class dinnerJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(792, 559));
 
         sampleDTextArea1.setEditable(false);
         sampleDTextArea1.setColumns(20);
         sampleDTextArea1.setFont(new java.awt.Font("Lucida Grande", 2, 18)); // NOI18N
         sampleDTextArea1.setLineWrap(true);
+                        sampleDTextArea1.setWrapStyleWord(true);
+
         sampleDTextArea1.setRows(5);
         jScrollPane1.setViewportView(sampleDTextArea1);
 
@@ -68,9 +69,11 @@ public class dinnerJFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(sampleD1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(sampleD1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,6 +96,8 @@ public class dinnerJFrame extends javax.swing.JFrame {
         sampleDTextArea2.setColumns(20);
         sampleDTextArea2.setFont(new java.awt.Font("Lucida Grande", 2, 18)); // NOI18N
         sampleDTextArea2.setLineWrap(true);
+                        sampleDTextArea2.setWrapStyleWord(true);
+
         sampleDTextArea2.setRows(5);
         jScrollPane2.setViewportView(sampleDTextArea2);
 
@@ -101,9 +106,11 @@ public class dinnerJFrame extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(sampleD2, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(sampleD2, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2))
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,6 +122,8 @@ public class dinnerJFrame extends javax.swing.JFrame {
         sampleDTextArea3.setColumns(20);
         sampleDTextArea3.setFont(new java.awt.Font("Lucida Grande", 2, 18)); // NOI18N
         sampleDTextArea3.setLineWrap(true);
+                        sampleDTextArea3.setWrapStyleWord(true);
+
         sampleDTextArea3.setRows(5);
         jScrollPane3.setViewportView(sampleDTextArea3);
 
@@ -123,9 +132,11 @@ public class dinnerJFrame extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(sampleD3, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(sampleD3, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3))
+                .addComponent(jScrollPane3)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
