@@ -54,6 +54,7 @@ public class snacksJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(792, 559));
 
         jButton1.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jButton1.setText("Back");
@@ -70,8 +71,6 @@ public class snacksJFrame extends javax.swing.JFrame {
         sampleDTextArea1.setColumns(20);
         sampleDTextArea1.setFont(new java.awt.Font("Lucida Grande", 2, 18)); // NOI18N
         sampleDTextArea1.setLineWrap(true);
-                sampleDTextArea1.setWrapStyleWord(true);
-
         sampleDTextArea1.setRows(5);
         jScrollPane1.setViewportView(sampleDTextArea1);
 
@@ -96,8 +95,6 @@ public class snacksJFrame extends javax.swing.JFrame {
         sampleDTextArea2.setColumns(20);
         sampleDTextArea2.setFont(new java.awt.Font("Lucida Grande", 2, 18)); // NOI18N
         sampleDTextArea2.setLineWrap(true);
-                sampleDTextArea2.setWrapStyleWord(true);
-
         sampleDTextArea2.setRows(5);
         jScrollPane2.setViewportView(sampleDTextArea2);
 
@@ -122,8 +119,6 @@ public class snacksJFrame extends javax.swing.JFrame {
         sampleDTextArea3.setColumns(20);
         sampleDTextArea3.setFont(new java.awt.Font("Lucida Grande", 2, 18)); // NOI18N
         sampleDTextArea3.setLineWrap(true);
-                sampleDTextArea3.setWrapStyleWord(true);
-
         sampleDTextArea3.setRows(5);
         jScrollPane3.setViewportView(sampleDTextArea3);
 

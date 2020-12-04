@@ -57,6 +57,7 @@ public class EditUserInfo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(792, 559));
 
         firstNameJLabel.setText("First Name *");
 

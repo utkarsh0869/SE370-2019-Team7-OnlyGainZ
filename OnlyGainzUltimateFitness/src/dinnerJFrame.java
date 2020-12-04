@@ -54,6 +54,7 @@ public class dinnerJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(792, 559));
 
         sampleDTextArea1.setEditable(false);
         sampleDTextArea1.setColumns(20);
