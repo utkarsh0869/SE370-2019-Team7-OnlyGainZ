@@ -10,8 +10,6 @@ import java.util.*;
 
 public class Dashboard extends javax.swing.JFrame {
 
-                   
-
     Quotes q = new Quotes();
 
     /**
