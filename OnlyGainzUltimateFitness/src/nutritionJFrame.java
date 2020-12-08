@@ -35,51 +35,69 @@ public class nutritionJFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setBackground(new java.awt.Color(219, 218, 216));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(792, 559));
 
+        nutritionSource.setBackground(new java.awt.Color(231, 187, 165));
         nutritionSource.setFont(new java.awt.Font("Lucida Grande", 1, 36)); // NOI18N
+        nutritionSource.setForeground(new java.awt.Color(231, 187, 165));
         nutritionSource.setText("      NUTRITION SOURCES");
 
+        breakfastButton.setBackground(new java.awt.Color(237, 121, 68));
         breakfastButton.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        breakfastButton.setForeground(new java.awt.Color(231, 187, 165));
         breakfastButton.setText("BREAKFAST");
         breakfastButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        breakfastButton.setOpaque(true);
         breakfastButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 breakfastButtonActionPerformed(evt);
             }
         });
 
+        dinnerButton.setBackground(new java.awt.Color(237, 121, 68));
         dinnerButton.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        dinnerButton.setForeground(new java.awt.Color(231, 187, 165));
         dinnerButton.setText("DINNER");
         dinnerButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        dinnerButton.setOpaque(true);
         dinnerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dinnerButtonActionPerformed(evt);
             }
         });
 
+        lunchButtons.setBackground(new java.awt.Color(237, 121, 68));
         lunchButtons.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        lunchButtons.setForeground(new java.awt.Color(231, 187, 165));
         lunchButtons.setText("LUNCH");
         lunchButtons.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        lunchButtons.setOpaque(true);
         lunchButtons.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lunchButtonsActionPerformed(evt);
             }
         });
 
+        snacksButton.setBackground(new java.awt.Color(237, 121, 68));
         snacksButton.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        snacksButton.setForeground(new java.awt.Color(231, 187, 165));
         snacksButton.setText("SNACKS");
         snacksButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        snacksButton.setOpaque(true);
         snacksButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 snacksButtonActionPerformed(evt);
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(237, 121, 68));
         jButton1.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(231, 187, 165));
         jButton1.setText("Back");
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jButton1.setOpaque(true);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

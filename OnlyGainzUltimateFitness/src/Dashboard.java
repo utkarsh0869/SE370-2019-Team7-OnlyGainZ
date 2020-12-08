@@ -50,14 +50,16 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(219, 218, 216));
         setUndecorated(true);
         setResizable(false);
         setSize(new java.awt.Dimension(792, 559));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(219, 218, 216));
 
-        workoutsButton.setBackground(new java.awt.Color(255, 51, 102));
+        workoutsButton.setBackground(new java.awt.Color(237, 121, 68));
         workoutsButton.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        workoutsButton.setForeground(new java.awt.Color(231, 187, 165));
         workoutsButton.setText("WORKOUTS");
         workoutsButton.setOpaque(true);
         workoutsButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -80,8 +82,9 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        goalSetterButton.setBackground(new java.awt.Color(177, 177, 177));
+        goalSetterButton.setBackground(new java.awt.Color(237, 121, 68));
         goalSetterButton.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        goalSetterButton.setForeground(new java.awt.Color(231, 187, 165));
         goalSetterButton.setText("GOAL SETTER");
         goalSetterButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         goalSetterButton.setOpaque(true);
@@ -91,8 +94,9 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        nutritionButton.setBackground(new java.awt.Color(153, 255, 102));
+        nutritionButton.setBackground(new java.awt.Color(237, 121, 68));
         nutritionButton.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        nutritionButton.setForeground(new java.awt.Color(231, 187, 165));
         nutritionButton.setText("NUTRITION");
         nutritionButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         nutritionButton.setOpaque(true);
@@ -102,8 +106,9 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        leaderBoardButton.setBackground(new java.awt.Color(153, 153, 255));
+        leaderBoardButton.setBackground(new java.awt.Color(237, 121, 68));
         leaderBoardButton.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        leaderBoardButton.setForeground(new java.awt.Color(231, 187, 165));
         leaderBoardButton.setText("LEADERBOARD");
         leaderBoardButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         leaderBoardButton.setOpaque(true);
@@ -124,8 +129,9 @@ public class Dashboard extends javax.swing.JFrame {
         jScrollPane1.setViewportView(quoteTextArea);
         quoteTextArea.setEditable(false);
 
-        gainzTrackerButton.setBackground(new java.awt.Color(238, 210, 233));
+        gainzTrackerButton.setBackground(new java.awt.Color(237, 121, 68));
         gainzTrackerButton.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        gainzTrackerButton.setForeground(new java.awt.Color(231, 187, 165));
         gainzTrackerButton.setText("GAINZ TRACKER");
         gainzTrackerButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         gainzTrackerButton.setOpaque(true);
@@ -135,8 +141,9 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        healthtipsButton.setBackground(new java.awt.Color(238, 228, 103));
+        healthtipsButton.setBackground(new java.awt.Color(237, 121, 68));
         healthtipsButton.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        healthtipsButton.setForeground(new java.awt.Color(231, 187, 165));
         healthtipsButton.setText("HEALTH TIPS");
         healthtipsButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         healthtipsButton.setOpaque(true);
@@ -150,9 +157,12 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText(s);
 
+        signOutJButton.setBackground(new java.awt.Color(237, 121, 68));
         signOutJButton.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        signOutJButton.setForeground(new java.awt.Color(231, 187, 165));
         signOutJButton.setText("Sign Out");
         signOutJButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        signOutJButton.setOpaque(true);
         signOutJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signOutJButtonActionPerformed(evt);
