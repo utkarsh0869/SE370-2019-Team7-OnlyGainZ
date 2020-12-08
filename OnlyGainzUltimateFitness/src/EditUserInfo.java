@@ -56,8 +56,8 @@ public class EditUserInfo extends javax.swing.JFrame {
         genderJTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(219, 218, 216));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(792, 559));
 
         firstNameJLabel.setText("First Name *");
 
@@ -106,14 +106,20 @@ public class EditUserInfo extends javax.swing.JFrame {
 
         woJTextField.setText(OnlyGainz.userinfo[9]);
 
+        cancelJButton.setBackground(new java.awt.Color(237, 121, 68));
         cancelJButton.setText("Cancel");
+        cancelJButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        cancelJButton.setOpaque(true);
         cancelJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelJButtonActionPerformed(evt);
             }
         });
 
+        updateJButton.setBackground(new java.awt.Color(237, 121, 68));
         updateJButton.setText("Update");
+        updateJButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        updateJButton.setOpaque(true);
         updateJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateJButtonActionPerformed(evt);
@@ -209,7 +215,7 @@ public class EditUserInfo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updateJButton)
                     .addComponent(cancelJButton))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
