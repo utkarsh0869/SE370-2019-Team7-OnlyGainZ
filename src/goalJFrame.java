@@ -22,7 +22,7 @@ import javax.swing.event.TableModelListener;
  *
  * @author lopez816
  */
-public class goalJFrame extends javax.swing.JFrame implements TableModelListener{
+public class goalJFrame extends javax.swing.JFrame {
     
     ArrayList<Goals> goals;
     /**
@@ -46,7 +46,8 @@ public class goalJFrame extends javax.swing.JFrame implements TableModelListener
                 filewriter.write(goals.get(i).getGoalAuthor()+"  ");
                 filewriter.write(goals.get(i).getGoalDesc()+"  ");
                 filewriter.write(goals.get(i).getGoalEndDate()+"  ");
-                filewriter.write(goals.get(i).getGoalStatus()+"\n");
+                filewriter.write(goals.get(i).getGoalDifficulty()+"  ");
+                filewriter.write(goals.get(i).getGoalType()+"\n");
             }    
             filewriter.flush();
             filewriter.close();
@@ -66,7 +67,7 @@ public class goalJFrame extends javax.swing.JFrame implements TableModelListener
                 String ii = myReader.nextLine();
                 String [] g = ii.split("  ");
                 if(g[0].equals(OnlyGainz.userinfo[3])){
-                    model.addRow(new Object [] {g[0], g[1], g[2], Boolean.parseBoolean(g[3])});
+                    model.addRow(new Object [] {g[0], g[1], g[2], g[3], g[4]});
                 }
             }
         }   
@@ -74,9 +75,12 @@ public class goalJFrame extends javax.swing.JFrame implements TableModelListener
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
-    
+
     // event listener not finalized
-    @Override
+    // instead of doing this we add more columns to the table to replace this checkbox listener
+    // the columns we could add include: goal difficulty, who will help with achieving goal, etc.
+    
+   /*
     public void tableChanged(TableModelEvent e) {
         DefaultTableModel model = (DefaultTableModel)goalTable.getModel();
         String lineToEdit = "";
@@ -118,7 +122,10 @@ public class goalJFrame extends javax.swing.JFrame implements TableModelListener
                 JOptionPane.showMessageDialog(null, i.getMessage());
             }
         }   
+    
     }
+    /*
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -138,6 +145,11 @@ public class goalJFrame extends javax.swing.JFrame implements TableModelListener
         jLabel3 = new javax.swing.JLabel();
         addButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        typeComboBox = new javax.swing.JComboBox<>();
+        difficultyComboBox = new javax.swing.JComboBox<>();
+        backButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -160,17 +172,9 @@ public class goalJFrame extends javax.swing.JFrame implements TableModelListener
 
             },
             new String [] {
-                "Author", "Goal Details", "Deadline", "Completed"
+                "Author", "Goal Details", "Deadline", "Difficulty", "Goal Type"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         goalTable.setGridColor(new java.awt.Color(204, 204, 204));
         goalTable.setRowHeight(40);
         jScrollPane1.setViewportView(goalTable);
@@ -195,41 +199,67 @@ public class goalJFrame extends javax.swing.JFrame implements TableModelListener
             }
         });
 
+        jLabel4.setText("Goal Difficulty:");
+
+        jLabel5.setText("Goal Type:");
+
+        typeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Type", "Personal", "Physical", "Mental", "Family", "Career" }));
+
+        difficultyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Difficulty", "Easy", "Medium", "Hard", "Extreme" }));
+
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
+                        .addContainerGap()
+                        .addComponent(backButton))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(details, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                            .addComponent(endDate)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(addButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(deleteButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(51, 51, 51)
+                                        .addComponent(jLabel3))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel1)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel5))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(details)
+                                                .addComponent(endDate, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(typeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(difficultyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(91, 91, 91)
+                                .addComponent(addButton)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deleteButton))))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(backButton)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -240,12 +270,22 @@ public class goalJFrame extends javax.swing.JFrame implements TableModelListener
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(endDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(difficultyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(typeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addButton)
-                        .addGap(55, 55, 55)
-                        .addComponent(deleteButton)
-                        .addGap(14, 14, 14)))
-                .addContainerGap(47, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(addButton)
+                            .addComponent(deleteButton))))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -257,17 +297,20 @@ public class goalJFrame extends javax.swing.JFrame implements TableModelListener
         
         String goalDetails = details.getText();
         String goalEndDate = endDate.getText();
-        String userN = OnlyGainz.userinfo[3];
-        boolean goalStatus = false;
+        String goalDifficulty = difficultyComboBox.getSelectedItem().toString();
+        String goalType = typeComboBox.getSelectedItem().toString();
+   
+        String userN = OnlyGainz.userinfo[3]; // global to current user(author)
         
         // add to table  
-        if(details.getText().isEmpty() || endDate.getText().isEmpty()) {
+        if(details.getText().isEmpty() || endDate.getText().isEmpty()|| difficultyComboBox.getSelectedItem() == "Difficulty" ||
+                typeComboBox.getSelectedItem() == "Type") {
             JOptionPane.showMessageDialog(null, "Please enter all required fields");
         }
         else {
-            model.addRow(new Object [] {userN, goalDetails, goalEndDate, goalStatus}); 
+            model.addRow(new Object[] {userN, goalDetails, goalEndDate, goalDifficulty, goalType}); 
             
-            Goals goal = new Goals(userN, goalDetails, goalEndDate, goalStatus);
+            Goals goal = new Goals(userN, goalDetails, goalEndDate, goalDifficulty, goalType);
             goals.add(goal);
             saveGoalToFile();
         }
@@ -277,8 +320,8 @@ public class goalJFrame extends javax.swing.JFrame implements TableModelListener
         DefaultTableModel model = (DefaultTableModel)goalTable.getModel();
         String lineToRemove = "";
         
-        for (int i = 0; i < 4; i++) {
-            if (i <= 2)
+        for (int i = 0; i < 5; i++) {
+            if (i <= 3)
                 lineToRemove += goalTable.getModel().getValueAt(goalTable.getSelectedRow(), i).toString() + "  ";
             else 
                 lineToRemove += goalTable.getModel().getValueAt(goalTable.getSelectedRow(), i).toString();
@@ -309,6 +352,11 @@ public class goalJFrame extends javax.swing.JFrame implements TableModelListener
         // remove the row selected from the table
         model.removeRow(goalTable.getSelectedRow());
     }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        new Dashboard().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_backButtonActionPerformed
     
     
     /**
@@ -348,14 +396,19 @@ public class goalJFrame extends javax.swing.JFrame implements TableModelListener
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
+    private javax.swing.JButton backButton;
     private javax.swing.JButton deleteButton;
     private javax.swing.JTextField details;
+    private javax.swing.JComboBox<String> difficultyComboBox;
     private javax.swing.JTextField endDate;
     private javax.swing.JTable goalTable;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> typeComboBox;
     // End of variables declaration//GEN-END:variables
 }

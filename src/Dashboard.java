@@ -234,6 +234,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void goalSetterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goalSetterButtonActionPerformed
         new goalJFrame().setVisible(true);
+        dispose();
     }//GEN-LAST:event_goalSetterButtonActionPerformed
 
     private void nutritionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutritionButtonActionPerformed
@@ -247,6 +248,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void leaderBoardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaderBoardButtonActionPerformed
         new leaderboardJFrame().setVisible(true);
+        dispose();
     }//GEN-LAST:event_leaderBoardButtonActionPerformed
 
     private void gainzTrackerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gainzTrackerButtonActionPerformed

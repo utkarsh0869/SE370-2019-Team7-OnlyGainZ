@@ -1,5 +1,13 @@
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import javax.swing.RowFilter;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  * @author lopez816
  */
 public class leaderboardJFrame extends javax.swing.JFrame {
-
+    ArrayList<Integer> desc = new ArrayList<Integer>();
     /**
      * Creates new form leaderboardJFrame
      */
@@ -23,38 +31,52 @@ public class leaderboardJFrame extends javax.swing.JFrame {
     }
     
     public void orderLeaderboard() {
-        // this function will fill the leadboard 
+        // this function will sort the leadboard 
         // with the top users on the application
         
-        // open the user file like so:
-        /*
-        
-        File myFile = new File("textfiles/User.txt");
+        // open the user file like so
+        File myFile = new File("textfiles/exercise.txt");
         try (Scanner myReader = new Scanner(myFile)) {
             while (myReader.hasNextLine()) {
                 String ii = myReader.nextLine();
                 String [] err = ii.split(" ");
-                    // err[#] > err[#+1]
-                    // #++;
-                    // put the users in order and place in an array or hashtable
+                
+                desc.add(Integer.parseInt(err[2])); // adds all user reps   
                 }
+            Collections.sort(desc, Collections.reverseOrder()); // sorts reps - largest first
             }
-        }   
         catch(Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-        fillLeaderboardTable();
-        */       
+        fillLeaderboardTable();      
     }
     
     public void fillLeaderboardTable() {
-        // take the array/hashtable and fill the table
-        DefaultTableModel model = (DefaultTableModel)leaderboardTable.getModel();
+        // take the array and fill the table
+        // DefaultTableModel model = (DefaultTableModel)leaderboardTable.getModel();
+        // int i = 0;
         
-        int i = 1;
-        // while the array is not empty
-        // model.addRow(new Object [] {i, array[i].user, array[i].reps});
-        // i++;
+        /*
+        File myFile = new File("textfiles/exercise.txt");
+        try (Scanner myReader = new Scanner(myFile)) {
+            while (myReader.hasNextLine()) {
+                String ii = myReader.nextLine();
+                String [] g = ii.split("  ");
+                
+                model.addRow(new Object [] {++i, g[0], desc.get(i++)});
+            }
+        }
+        catch(Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+
+        while(i < desc.size()) {
+            model.addRow(new Object [] {i + 1, OnlyGainz.userinfo[3], desc.get(i)});
+            i++;
+        }
+        */
+        
+        // this function should just add to the leaderboard
     }
 
     /**
@@ -71,20 +93,25 @@ public class leaderboardJFrame extends javax.swing.JFrame {
         leaderboardTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         searchText = new javax.swing.JTextField();
+        backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Leaderboard");
         setBackground(new java.awt.Color(102, 204, 255));
+        setUndecorated(true);
 
+        leaderboardTable.setForeground(new java.awt.Color(237, 121, 68));
         leaderboardTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {"1", "lopez816", "700"},
+                {"2", "karki005", "600"},
+                {"3", "flore510", "500"}
             },
             new String [] {
-                "#", "User", "Reps"
+                "#", "User", "Total Reps"
             }
         ));
-        leaderboardTable.setGridColor(new java.awt.Color(0, 0, 0));
+        leaderboardTable.setGridColor(new java.awt.Color(204, 204, 204));
         leaderboardTable.setRowHeight(40);
         jScrollPane1.setViewportView(leaderboardTable);
 
@@ -96,14 +123,23 @@ public class leaderboardJFrame extends javax.swing.JFrame {
             }
         });
 
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(116, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(backButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 260, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchText, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -113,11 +149,17 @@ public class leaderboardJFrame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(searchText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(41, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(searchText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(backButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -126,16 +168,27 @@ public class leaderboardJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextActionPerformed
-        // something similar to this to find the row searched for
-        /*
+        // TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(leaderboardTable.getModel());
+        leaderboardTable.getSelectionModel().clearSelection();        
         String text = searchText.getText();
         if (text.trim().length() == 0) {
-            rowSorter.setRowFilter(null);
+            //rowSorter.setRowFilter(null);
+            JOptionPane.showMessageDialog(null, "Enter a valid search!");
         } else {
-            rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));
+            for(int i = 0; i < leaderboardTable.getRowCount(); i++) {
+                if(leaderboardTable.getModel().getValueAt(i, 1).equals(text)) {
+                    System.out.println(i);
+                    leaderboardTable.addRowSelectionInterval(i, i); // highlight row if found 
+                }
+            }
+            // rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));
         }
-        */
     }//GEN-LAST:event_searchTextActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        new Dashboard().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_backButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,6 +226,7 @@ public class leaderboardJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;

@@ -11,19 +11,22 @@ import java.util.*;
  *
  * @author utkarshgerrard
  */
+
 public class Goals implements Serializable{
     String goalAuthor;
     String goalDesc;
     String goalEndDate; // deadline
-    Boolean goalStatus;
+    String goalDifficulty;
+    String goalType;
 
-    public Goals(String goalAuthor, String goalDesc, String goalEndDate, Boolean goalStatus) {
+    public Goals(String goalAuthor, String goalDesc, String goalEndDate, String goalDifficulty, String goalType) {
         this.goalAuthor = goalAuthor;
         this.goalDesc = goalDesc;
         this.goalEndDate = goalEndDate;
-        this.goalStatus = goalStatus;
+        this.goalDifficulty = goalDifficulty;
+        this.goalType = goalType;
     }
-
+    
     public String getGoalAuthor() {
         return goalAuthor;
     }
@@ -48,11 +51,23 @@ public class Goals implements Serializable{
         this.goalEndDate = goalEndDate;
     }
 
-    public Boolean getGoalStatus() {
-        return goalStatus;
+    public String getGoalDifficulty() {
+        return goalDifficulty;
     }
 
-    public void setGoalStatus(Boolean goalStatus) {
-        this.goalStatus = goalStatus;
-    }      
+    public void setGoalDifficulty(String goalDifficulty) {
+        this.goalDifficulty = goalDifficulty;
+    }
+
+    public String getGoalType() {
+        return goalType;
+    }
+
+    public void setGoalType(String goalType) {
+        this.goalType = goalType;
+    }
+ 
+    
+    
+     
 }

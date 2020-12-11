@@ -33,13 +33,14 @@ public class landingJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("OnlyGainz");
-        setBackground(new java.awt.Color(102, 204, 255));
+        setBackground(new java.awt.Color(204, 204, 204));
 
         welcomeMessage.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        welcomeMessage.setForeground(new java.awt.Color(237, 121, 68));
         welcomeMessage.setText("Welcome to OnlyGainz!");
 
         signupButton.setBackground(new java.awt.Color(102, 204, 255));
-        signupButton.setForeground(new java.awt.Color(102, 204, 255));
+        signupButton.setForeground(new java.awt.Color(237, 121, 68));
         signupButton.setText("Create an Account");
         signupButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -47,7 +48,7 @@ public class landingJFrame extends javax.swing.JFrame {
             }
         });
 
-        loginButton.setForeground(new java.awt.Color(102, 204, 255));
+        loginButton.setForeground(new java.awt.Color(237, 121, 68));
         loginButton.setText("Login");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,26 +63,26 @@ public class landingJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addComponent(welcomeMessage))
+                        .addGap(172, 172, 172)
+                        .addComponent(signupButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(149, 149, 149)
-                        .addComponent(loginButton))
+                        .addComponent(welcomeMessage))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addComponent(signupButton)))
-                .addContainerGap(104, Short.MAX_VALUE))
+                        .addGap(210, 210, 210)
+                        .addComponent(loginButton)))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(50, 50, 50)
                 .addComponent(welcomeMessage)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addGap(106, 106, 106)
                 .addComponent(loginButton)
                 .addGap(18, 18, 18)
                 .addComponent(signupButton)
-                .addGap(90, 90, 90))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
@@ -89,10 +90,12 @@ public class landingJFrame extends javax.swing.JFrame {
 
     private void signupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupButtonActionPerformed
         new signupJFrame().setVisible(true);
+        dispose();
     }//GEN-LAST:event_signupButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         new loginJFrame().setVisible(true); 
+        dispose();
     }//GEN-LAST:event_loginButtonActionPerformed
 
     /**

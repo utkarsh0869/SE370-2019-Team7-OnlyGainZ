@@ -14,46 +14,39 @@ import java.util.*;
 
 public class Tips {
 
-    public HashMap<Integer, String> tipsHM;
+    public ArrayList<String> tipsArray;
     
     public Tips() {
-        tipsHM = new HashMap<Integer, String>();
-        populateHashMap();
+        tipsArray = new ArrayList<String>();
+        populateArrayList();
+    }
+
+    public ArrayList<String> getTipsArray() {
+        return tipsArray;
+    }
+
+    public void setTipsArray(ArrayList<String> tipsArray) {
+        this.tipsArray = tipsArray;
     }
     
-    public HashMap<Integer, String> getHashMap(){
-        return tipsHM;
-    }
     
-    String returnRandomTipsFromHashMap(){
-        String s = "";
-        //Collections.shuffle(Arrays.asList(tipsHM));
-        //List keys = new ArrayList(tipsHM.keySet());
-        //Collections.shuffle(keys);
-        
-        for(int i = 1; i < 6; i++) {
-            //Collections.shuffle(Arrays.asList(tipsHM));
-            Random r = new Random();
-            int j = r.nextInt(25 + 1 -1) + 1;
-            s += i + ": " + tipsHM.get(j) + "\n";
-        }
+    String returnRandomTipsFromArrayList(int x){
+        String s = tipsArray.get(x);
         return s;
     }
     
-    public void populateHashMap()
+    public void populateArrayList()
     {
         try
         {
-            
             File myFile = new File("textfiles/healthTips.txt");
             try (Scanner myReader = new Scanner(myFile)) {
                 
                 while (myReader.hasNextLine()) {
-                    String ii = myReader.nextLine();
-                    Integer j = Integer.parseInt(ii);
                     String ss = myReader.nextLine();
-                    tipsHM.put(j, ss);
+                    tipsArray.add(ss);
                 }
+                Collections.shuffle(tipsArray); // randomize the order of the ArrayList
             }
         }
         catch (FileNotFoundException e)
