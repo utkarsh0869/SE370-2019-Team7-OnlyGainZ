@@ -1,0 +1,3 @@
+SquatJump 6 8
+SquatJump 10 6
+PushUpKnuckle 2 7

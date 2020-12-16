@@ -39,7 +39,6 @@ public class Dashboard extends javax.swing.JFrame {
         profileLabel = new javax.swing.JLabel();
         goalSetterButton = new javax.swing.JButton();
         nutritionButton = new javax.swing.JButton();
-        leaderBoardButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         quoteTextArea = new javax.swing.JTextArea();
         gainzTrackerButton = new javax.swing.JButton();
@@ -103,18 +102,6 @@ public class Dashboard extends javax.swing.JFrame {
         nutritionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nutritionButtonActionPerformed(evt);
-            }
-        });
-
-        leaderBoardButton.setBackground(new java.awt.Color(237, 121, 68));
-        leaderBoardButton.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
-        leaderBoardButton.setForeground(new java.awt.Color(231, 187, 165));
-        leaderBoardButton.setText("LEADERBOARD");
-        leaderBoardButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        leaderBoardButton.setOpaque(true);
-        leaderBoardButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                leaderBoardButtonActionPerformed(evt);
             }
         });
 
@@ -185,9 +172,7 @@ public class Dashboard extends javax.swing.JFrame {
                             .addComponent(nutritionButton, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
                             .addComponent(gainzTrackerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(goalSetterButton, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                            .addComponent(leaderBoardButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(goalSetterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(dashboardLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -216,14 +201,15 @@ public class Dashboard extends javax.swing.JFrame {
                         .addComponent(dashboardLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(leaderBoardButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nutritionButton, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                    .addComponent(workoutsButton, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(healthtipsButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(gainzTrackerButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(goalSetterButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nutritionButton, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                            .addComponent(workoutsButton, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(healthtipsButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(gainzTrackerButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)))
+                    .addComponent(goalSetterButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -250,11 +236,17 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_profileLabelMouseClicked
 
     private void workoutsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workoutsButtonActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        workoutJFrame wojf = new workoutJFrame();
+        wojf.setVisible(true);
+        wojf.toFront();
     }//GEN-LAST:event_workoutsButtonActionPerformed
 
     private void goalSetterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goalSetterButtonActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        goalJFrame goalJFrame = new goalJFrame();
+        goalJFrame.setVisible(true);
+        goalJFrame.toFront();
     }//GEN-LAST:event_goalSetterButtonActionPerformed
 
     private void nutritionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutritionButtonActionPerformed
@@ -266,16 +258,18 @@ public class Dashboard extends javax.swing.JFrame {
                 
     }//GEN-LAST:event_nutritionButtonActionPerformed
 
-    private void leaderBoardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaderBoardButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_leaderBoardButtonActionPerformed
-
     private void gainzTrackerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gainzTrackerButtonActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        GainzTracker gainzTracker= new GainzTracker();
+        gainzTracker.setVisible(true);
+        gainzTracker.toFront();
     }//GEN-LAST:event_gainzTrackerButtonActionPerformed
 
     private void healthtipsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthtipsButtonActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        tipsJFrame tipsJFrame = new tipsJFrame();
+        tipsJFrame.setVisible(true);
+        tipsJFrame.toFront();
     }//GEN-LAST:event_healthtipsButtonActionPerformed
 
     private void signOutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutJButtonActionPerformed
@@ -294,7 +288,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton leaderBoardButton;
     private javax.swing.JButton nutritionButton;
     private javax.swing.JLabel profileLabel;
     private javax.swing.JTextArea quoteTextArea;

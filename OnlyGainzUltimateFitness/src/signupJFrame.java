@@ -22,6 +22,7 @@ import java.util.TimeZone;
  */
 public class signupJFrame extends javax.swing.JFrame {
     
+    int gi = 0;
     ArrayList<User> users;
     /**
      * Creates new form signupJFrame
@@ -40,23 +41,25 @@ public class signupJFrame extends javax.swing.JFrame {
            FileWriter filewriter = new FileWriter(myFile, true);
           
            
-           for(int i = 0; i < users.size(); i++) {
-                filewriter.write(users.get(i).getUserID() +" ");
-                filewriter.write(users.get(i).getfName()+" ");
-                filewriter.write(users.get(i).getlName()+" ");
-                filewriter.write(users.get(i).getUsername()+" ");
-                filewriter.write(users.get(i).getPassword()+" ");
-                filewriter.write(users.get(i).getGender()+" ");
-                filewriter.write(Integer.toString(users.get(i).getAge())+" ");
-                filewriter.write(Integer.toString(users.get(i).getHeight())+" ");
-                filewriter.write(Integer.toString(users.get(i).getWeight())+" ");
-                filewriter.write(Integer.toString(users.get(i).getYrOfExperience())+"\n");
-           }
+//           for(int i = 0; i < users.size(); i++) {
+                filewriter.write(users.get(gi).getUserID() +" ");
+                filewriter.write(users.get(gi).getfName()+" ");
+                filewriter.write(users.get(gi).getlName()+" ");
+                filewriter.write(users.get(gi).getUsername()+" ");
+                filewriter.write(users.get(gi).getPassword()+" ");
+                filewriter.write(users.get(gi).getGender()+" ");
+                filewriter.write(Integer.toString(users.get(gi).getAge())+" ");
+                filewriter.write(Integer.toString(users.get(gi).getHeight())+" ");
+                filewriter.write(Integer.toString(users.get(gi).getWeight())+" ");
+                filewriter.write(Integer.toString(users.get(gi).getYrOfExperience())+"\n");
+//           }
+                gi++;
+
            filewriter.flush();
            filewriter.close();
            
            JOptionPane.showMessageDialog(null, "User information stored!");
-           this.dispose(); // clears the message dialog
+//           this.dispose(); // clears the message dialog
         }    
         catch(IOException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -316,6 +319,8 @@ public class signupJFrame extends javax.swing.JFrame {
             User user = new User(fName, lName, userName, pass, gender, age, ht, wt, woExperience, userID);
             users.add(user);
             saveUsersToFile();
+            this.dispose();
+            new loginJFrame().setVisible(true);
         }
         
     }                                            

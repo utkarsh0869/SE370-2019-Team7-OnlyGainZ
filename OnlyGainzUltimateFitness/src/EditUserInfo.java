@@ -2,6 +2,7 @@
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.util.Arrays;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 
@@ -85,7 +86,7 @@ public class EditUserInfo extends javax.swing.JFrame {
 
         passwordJTextField.setText(OnlyGainz.userinfo[4]);
 
-        birthdayJLabel.setText("Birthday *");
+        birthdayJLabel.setText("Age *");
 
         genderJLabel.setText("Gender");
 
@@ -107,7 +108,7 @@ public class EditUserInfo extends javax.swing.JFrame {
         woJTextField.setText(OnlyGainz.userinfo[9]);
 
         cancelJButton.setBackground(new java.awt.Color(237, 121, 68));
-        cancelJButton.setText("Cancel");
+        cancelJButton.setText("Back");
         cancelJButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         cancelJButton.setOpaque(true);
         cancelJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -126,9 +127,9 @@ public class EditUserInfo extends javax.swing.JFrame {
             }
         });
 
-        birthdayJTextField.setText(OnlyGainz.userinfo[5]);
+        birthdayJTextField.setText(OnlyGainz.userinfo[6]);
 
-        genderJTextField.setText(OnlyGainz.userinfo[6]);
+        genderJTextField.setText(OnlyGainz.userinfo[5]);
         genderJTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 genderJTextFieldActionPerformed(evt);
@@ -238,7 +239,7 @@ public class EditUserInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelJButtonActionPerformed
 
     private void updateJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateJButtonActionPerformed
-    {
+        
         if(firstNameJTextField1.getText().isEmpty() || lastNameJTextField.getText().isEmpty() || 
                 userNameJTextField.getText().isEmpty() || passwordJTextField.getText().isEmpty() ||
                 birthdayJTextField.getText().isEmpty() || weightJTextField.getText().isEmpty() ||
@@ -252,15 +253,17 @@ public class EditUserInfo extends javax.swing.JFrame {
             
             String [] newUserInfo = { firstNameJTextField1.getText().trim() , lastNameJTextField.getText().trim()           ,
                                  userNameJTextField.getText().trim()        ,      passwordJTextField.getText().trim()      ,
-                                 (birthdayJTextField.getText().trim())      ,      genderJTextField.getText().trim()        ,
+                                 (genderJTextField.getText().trim())      ,      birthdayJTextField.getText().trim()        ,
                                  (weightJTextField.getText().trim())        ,      (heightJTextField.getText().trim())      ,
                                  (woJTextField.getText().trim()) };
+            
+            System.out.println(Arrays.toString(newUserInfo));
             
             try {
             // input the file content to the StringBuffer "input"
             BufferedReader file = new BufferedReader(new FileReader("textfiles/User.txt"));
             StringBuffer inputBuffer = new StringBuffer();
-            String line;
+            String line = "";
             String inputStr = null;
 
             while ((line = file.readLine()) != null) {
@@ -269,8 +272,8 @@ public class EditUserInfo extends javax.swing.JFrame {
 
                 if(line.contains(OnlyGainz.userinfo[0])){
                     
-
                     inputStr = inputStr.replaceFirst(OnlyGainz.userinfo[1] , newUserInfo[0]);
+                    System.out.println(OnlyGainz.userinfo[7]);
                     inputStr = inputStr.replaceFirst(OnlyGainz.userinfo[2] , newUserInfo[1]);
                     inputStr = inputStr.replaceFirst(OnlyGainz.userinfo[3] , newUserInfo[2]);
                     inputStr = inputStr.replaceFirst(OnlyGainz.userinfo[4] , newUserInfo[3]);
@@ -279,11 +282,15 @@ public class EditUserInfo extends javax.swing.JFrame {
                     inputStr = inputStr.replaceFirst(OnlyGainz.userinfo[7] , newUserInfo[6]);
                     inputStr = inputStr.replaceFirst(OnlyGainz.userinfo[8] , newUserInfo[7]);
                     inputStr = inputStr.replaceFirst(OnlyGainz.userinfo[9] , newUserInfo[8]);
+                    inputBuffer.delete(0, inputStr.length());
+                    inputBuffer.append(inputStr);
+
                 }
                 inputBuffer.append('\n');
             }
             file.close();
 
+            System.out.println(" here" + inputStr);
             // write the new string with the replaced line OVER the same file
             FileOutputStream fileOut = new FileOutputStream("textfiles/User.txt");
             fileOut.write(inputStr.getBytes());
@@ -299,6 +306,8 @@ public class EditUserInfo extends javax.swing.JFrame {
         OnlyGainz.userinfo[8] = newUserInfo[7];
         OnlyGainz.userinfo[9] = newUserInfo[8];
         
+        System.out.println(Arrays.toString(OnlyGainz.userinfo));
+        
         repaint();
 
             
@@ -307,7 +316,7 @@ public class EditUserInfo extends javax.swing.JFrame {
         }            
         }
 
-    }
+        
     }//GEN-LAST:event_updateJButtonActionPerformed
 
     private void genderJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genderJTextFieldActionPerformed
